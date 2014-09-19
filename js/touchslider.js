@@ -39,7 +39,7 @@ touchslider = {
             $(this).children('.cell').each(function() {
                 $(this).css({
                     width: cellWidth + 'px',
-                    height: '13%',
+                    height: '14%',
                     position: 'absolute',
                     left: x + 'px',
                     top: padding + 'px'
@@ -270,5 +270,5 @@ touchslider = {
 };
 
 $(document).ready(function() {
-    touchslider.createSlidePanel('#slidebar', 50, 15);
+
 });

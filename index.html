@@ -86,34 +86,21 @@
 padding-left: 15px;" id='get_top_apps'> See All ></span>
                   </div>
                 </div>
-                <div class="row mobile-row" style="width: auto;overflow: hidden;height: 70px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont">
-                  
-                    
-            <div id="slidebar">
-                <div class="cell">
-                    <a href="#" target="_blank"><img src="img/fb.png" alt="facebook"></a>
-                </div><div class="cell">
-                <a href="#" target="_blank"><img src="img/tw.png" alt="twitter"></a>
-                </div><div class="cell">
-                <a href="#" target="_blank"><img src="img/go.png" alt="google plus"></a>
-                </div><div class="cell">
-                <a href="#" target="_blank"><img src="img/pin.png" alt="pinterest"></a>
-                </div><div class="cell">
-                <a href="#" target="_blank"><img src="img/st.png" alt="stumbleupon"></a>
-                </div><div class="cell">
-                <a href="#" target="_blank"><img src="img/dr.png" alt="dribbble"></a>
-                </div>
-                
-            </div>
-           
+                <div class="row mobile-row" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont">                    
+                    <div id="slidebar"></div>   
                   
                 </div>
                 <div class="row mobile-row">
                   <div class="col-xs-6" style="font-weight:bolder;margin:5px">
-                     <span>Top Games</span><span class="pull-right" style="border-left: solid 1px white;
+                     <span>Top Paid Apps</span><span class="pull-right" style="border-left: solid 1px white;
 padding-left: 15px;" id='get_top_apps'> See All ></span>
                   </div>
-                </div>                
+                </div>
+                <div class="row mobile-row" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont">                    
+                    <div id="slidebar2"></div>   
+                    
+                </div>
+
             </div>
             <div id="button">
             <div id="buttonsquare"></div>
@@ -223,7 +210,7 @@ padding-left: 15px;" id='get_top_apps'> See All ></span>
 
                      // alert($(window).width()+","+$(window).height());
 
-                    $.get('top_apps.php',function(data){
+                    $.get('top_free_apps.php',function(data){
 
                       var top_apps = eval('('+data+')');
                       //alert(top_apps[0]["app_name"]);
@@ -231,16 +218,82 @@ padding-left: 15px;" id='get_top_apps'> See All ></span>
                             var icon_links = [];
                             var track_url = [];
                             var rating = [];
-                            for(var i=0;i<apps.length;i++)
+                            for(var i=0;i<top_apps.length;i++)
                             {
                                 //console.log(apps[i]["app_name"]);
-                                names[i] = apps[i]["app_name"];
-                                icon_links[i] = apps[i]["icon"];
-                                track_url[i] = apps[i]["track_url"];
-                                rating[i] = apps[i]["avg_rating"];
+                                names[i] = top_apps[i]["app_name"];
+                                icon_links[i] = top_apps[i]["icon"];
+                                track_url[i] = top_apps[i]["track_url"];
+                                rating[i] = top_apps[i]["avg_rating"];
                             }
 
+                          var str = "";
+
+                          for (var i =0;i < top_apps.length; i++) {
+                            
+                            //first slice the name a bit to accomodate in the screen 
+
+                            var name;
+                            if(names[i].length>9)
+                            {
+                              name = names[i].slice(0,7);
+                              name = name+"...";
+                            }
+                            else
+                            {
+                              name = names[i];
+                            }
+
+                            str = str+" <div class='cell'><a href='"+track_url[i]+"' target='_blank'><img src='"+icon_links[i]+"' alt='"+names[i]+"' class='curve'></a><br><span class ='icon-text'>"+name+"</span></div>";
+
+                          };
+
+                          $('#slidebar').html(str);
+                          touchslider.createSlidePanel('#slidebar', 60, 15);
                     });
+
+                    $.get('top_paid_apps.php',function(data){
+
+                      var top_apps = eval('('+data+')');
+                      //alert(top_apps[0]["app_name"]);
+                            var names = [];
+                            var icon_links = [];
+                            var track_url = [];
+                            var rating = [];
+                            for(var i=0;i<top_apps.length;i++)
+                            {
+                                //console.log(apps[i]["app_name"]);
+                                names[i] = top_apps[i]["app_name"];
+                                icon_links[i] = top_apps[i]["icon"];
+                                track_url[i] = top_apps[i]["track_url"];
+                                rating[i] = top_apps[i]["avg_rating"];
+                            }
+
+                          var str = "";
+
+                          for (var i =0;i < top_apps.length; i++) {
+                            
+                            //first slice the name a bit to accomodate in the screen 
+
+                            var name;
+                            if(names[i].length>9)
+                            {
+                              name = names[i].slice(0,7);
+                              name = name+"...";
+                            }
+                            else
+                            {
+                              name = names[i];
+                            }
+
+                            str = str+" <div class='cell'><a href='"+track_url[i]+"' target='_blank'><img src='"+icon_links[i]+"' alt='"+names[i]+"' class='curve'></a><br><span class ='icon-text'>"+name+"</span></div>";
+
+                          };
+
+                          $('#slidebar2').html(str);
+                          touchslider.createSlidePanel('#slidebar2', 60, 15);
+                    });
+
 
 
 
