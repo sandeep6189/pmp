@@ -268,7 +268,3 @@ touchslider = {
          
     }
 };
-
-$(document).ready(function() {
-
-});

@@ -29,13 +29,43 @@
 }
 
 
-#slidebar {
+.slidebar {
     width: 450px;
     height: 250px;
     padding-top: 5px;
 }
 
+#slidebar2 {
+    width: 450px;
+    height: 250px;
+    padding-top: 5px;
+}
+#slidebar3 {
+    width: 450px;
+    height: 250px;
+    padding-top: 5px;
+}
+
+#slidebar4 {
+    width: 450px;
+    height: 250px;
+    padding-top: 5px;
+}
+
+#slidebar5 {
+    width: 450px;
+    height: 250px;
+    padding-top: 5px;
+}
+
+
 #slidecont {
+    font-size: 18px;
+    line-height: 22px;
+    font-family:Georgia,"Times New Roman","Bitstream Charter",Times,serif;
+    font-family: Verdana,Arial,Sans-serif;
+}
+#slidecont2 {
     font-size: 18px;
     line-height: 22px;
     font-family:Georgia,"Times New Roman","Bitstream Charter",Times,serif;
@@ -48,6 +78,15 @@
 }
 
 #slidecont.sliding {
+    border: thin solid orange;
+}
+
+.touchslidearticle #slidecont2 {
+    margin-left: -50px;
+    margin-right: -25px;
+}
+
+#slidecont2.sliding {
     border: thin solid orange;
 }
 

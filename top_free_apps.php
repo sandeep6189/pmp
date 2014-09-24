@@ -1,9 +1,8 @@
 <?php
 
 
-$query = $_POST["query"];
 
-$con= mysqli_connect('localhost','root','admin','top_free_apps');	
+$con= mysqli_connect('localhost','root','admin','pmp');	
 
 	if (mysqli_connect_errno()) {
  		echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -12,13 +11,10 @@ $con= mysqli_connect('localhost','root','admin','top_free_apps');
 	{	
 		
 		
-			$sql_query_2 = "
-				SELECT app_desc.app_name, images.icon, images.screenshot, rating.avg_rating, rating.rating_count,bundle.track_url
-				FROM app_desc
-				INNER JOIN images ON app_desc.bundle_id = images.bundle_id
-				INNER JOIN rating ON images.bundle_id = rating.bundle_id
-				INNER JOIN bundle ON rating.bundle_id = bundle.bundle_id
-				LIMIT 10
+			$sql_query_2 ="
+				SELECT * 
+				FROM  `top_free_apps` 
+				LIMIT 0 , 10
 			";
 
  			 $result2=mysqli_query($con,$sql_query_2);
