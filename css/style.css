@@ -288,6 +288,10 @@ ul.work-images li img:hover {
 {
 	background-image: linear-gradient(to bottom, #5E5959, #211F1F);margin-left: 0;margin-top: 0px;
 }
+.mobile-row2
+	{
+		background-image: linear-gradient(to bottom, 	#2C2A2A, #211F1F);margin-left: 0;margin-top: 0px;		
+	}
 #case {height: 560px; width: 277px; border-radius: 40px 40px; border: 1px solid #000; margin: auto;  /* Old browsers */
 background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(47%,rgba(246,246,246,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
@@ -341,4 +345,47 @@ text-align: center;
 .curve
 {
 	border-radius: 9px;
+	cursor: pointer;
+}
+.arrow-left {
+	width: 0; 
+	height: 0; 
+	border-top: 13px solid transparent;
+	border-bottom: 13px solid transparent; 
+	position: absolute;
+	border-right:13px solid rgb(82, 82, 82)	; 
+}
+.rect
+{
+	width:40px;
+	height: 26px;
+	position: absolute;
+	background: rgb(82, 82, 82);
+margin-left: 13px;
+border-radius: 0px 2px 2px 0px;
+
+}
+.rect-text
+{
+	font-weight: bolder;
+position: relative;
+margin-left: -2px;
+font-size: small;
+}
+#back
+{
+	position: relative;
+	padding: 12px;
+	cursor: pointer;
+}
+.info-pmp
+{
+	padding-top: 0%;position: absolute;left: 42%;z-index: 1;font-weight: bolder;font-size: medium;top:15%;
+}
+.mob_lis
+{
+	display: inline;
+	position: absolute;
+	width: 33%;
+	height: 100%;
 }

@@ -54,6 +54,7 @@
                             var icon_links = [];
                             var track_url = [];
                             var rating = [];
+                            var bundle_id = [];
                             for(var i=0;i<top_apps.length;i++)
                             {
                                 //console.log(apps[i]["app_name"]);
@@ -61,6 +62,7 @@
                                 icon_links[i] = top_apps[i]["icon"];
                                 track_url[i] = top_apps[i]["track_url"];
                                 rating[i] = top_apps[i]["avg_rating"];
+                                bundle_id[i] = top_apps[i]["bundle_id"];
                             }
                           var str = "";
                           for (var i =0;i < top_apps.length; i++) {
@@ -75,7 +77,7 @@
                             {
                               name = names[i];
                             }
-                            str = str+" <div class='cell'><a href='"+track_url[i]+"' target='_blank'><img src="+icon_links[i]+" alt='"+names[i]+"' class='curve'></a><br><span class ='icon-text'>"+name+"</span></div>";
+                            str = str+" <div class='cell'><img src="+icon_links[i]+" alt='"+track_url[i]+"' class='curve' id='"+bundle_id[i]+"'><br><span class ='icon-text'>"+name+"</span></div>";
                           };
                           $('#slidebar').html(str);
                           touchslider.createSlidePanel('#slidebar', 60, 15);
@@ -87,6 +89,7 @@
                             var icon_links = [];
                             var track_url = [];
                             var rating = [];
+                            var bundle_id = [];
                             for(var i=0;i<top_apps.length;i++)
                             {
                                 //console.log(apps[i]["app_name"]);
@@ -94,6 +97,7 @@
                                 icon_links[i] = top_apps[i]["icon"];
                                 track_url[i] = top_apps[i]["track_url"];
                                 rating[i] = top_apps[i]["avg_rating"];
+                                bundle_id[i] = top_apps[i]["bundle_id"];
                             }
                           var str = "";
                           for (var i =0;i < top_apps.length; i++) {
@@ -109,7 +113,7 @@
                              name = names[i];
                             }
 
-                            str = str+" <div class='cell'><a href='"+track_url[i]+"' target='_blank'><img src="+icon_links[i]+" alt='"+names[i]+"' class='curve'></a><br><span class ='icon-text'>"+name+"</span></div>";  
+                            str = str+" <div class='cell'><img src="+icon_links[i]+" alt='"+track_url[i]+"' class='curve' id="+bundle_id[i]+"><br><span class ='icon-text'>"+name+"</span></div>";  
                           };
                           $('#slidebar2').html(str);
                           touchslider.createSlidePanel('#slidebar2', 60, 15);
@@ -127,6 +131,7 @@
                             var icon_links = [];
                             var track_url = [];
                             var rating = [];
+                            var bundle_id = [];
                             for(var i=0;i<top_apps.length;i++)
                             {
                                 //console.log(apps[i]["app_name"]);
@@ -134,6 +139,7 @@
                                 icon_links[i] = top_apps[i]["icon"];
                                 track_url[i] = top_apps[i]["track_url"];
                                 rating[i] = top_apps[i]["avg_rating"];
+                                bundle_id[i] = top_apps[i]["bundle_id"];
                             }
                           var str = "";
                           for (var i =0;i < top_apps.length; i++) {
@@ -149,7 +155,7 @@
                              name = names[i];
                             }
 
-                            str = str+" <div class='cell'><a href='"+track_url[i]+"' target='_blank'><img src="+icon_links[i]+" alt='"+names[i]+"' class='curve'></a><br><span class ='icon-text'>"+name+"</span></div>";  
+                            str = str+" <div class='cell'><img src="+icon_links[i]+" alt='"+track_url[i]+"' class='curve' id="+bundle_id[i]+"></a><br><span class ='icon-text'>"+name+"</span></div>";  
                           };
                           $('#slidebar'+(index+3)).html(str);
                           touchslider.createSlidePanel('#slidebar'+(index+3), 60, 15);
@@ -160,7 +166,8 @@
                   // Info button click
                   var dump_screen = "";
 
-                    $('#info_button').click(function(){
+                    $(document).delegate('#info_button', 'click', function()
+                    {
                         //id screen_id is app_drop , so we need to replace it when click back
                         //take the current dump of the files and store it in a global variable 
                         dump_screen = $('#app_drop').html();
@@ -169,17 +176,44 @@
 
                             $('#app_drop').html(data);
 
-
                         });
 
 
 
                     });
 
-                     $('#back').click(function() {
+                     $(document).delegate('#back', 'click', function() {
                         $('#app_drop').html(dump_screen);
                      
                       });
+
+                     $(document).delegate('.curve', 'click', function() {
+                        
+                        dump_screen = $('#app_drop').html();
+                        //now we can give the id , track_url and img source to the next u.i screen
+                        var div_id = $(this).closest('div').parents('div').attr('id');
+                        //alert(div_id);
+                         $.post('app_details.php',{img_src:this.src,url:this.alt,id:this.id,div_id:div_id},function(data){
+                              $('#app_drop').html(data);
+                         });
+
+                      });
+
+                     $(document).delegate('#mobile_search','keypress',function(){
+                        var panel_data =  $('#search_panel').html();
+                        $('#search_panel').html("");
+                        var query = $('#mobile_search').val();
+                        $.post('search.php',{query:query},function(data){
+                            var s = eval('('+data+')');
+                            var str = "";
+                            for(var i =0;i<s.length;i++)
+                              {
+                                str+="<div class='mobile-row2' style='width:100%;height:75px;text-align:center;position:relative;margin-top:0px'><ul style='margin:0px'><li class='mob_lis' style='left:0px'><img src='"+s[i]['icon']+"' width=50 height=50 style='margin:10px;border-radius: 6px;border: 2px solid beige;' alt="+s[i]['track_url']+"></li><li class='mob_lis' style='left:24%;top:10px;font-weight:bolder;font-size:smaller;width:50%;'><div style='margin-left:16%;float:left'>"+s[i]['app_name']+"</div><br><div style='font-weight:100;margin-left:16%;float:left'>"+s[i]['version']+"</div><br><div style='font-weight:100;margin-left:16%;float:left;font-size:10px'>"+s[i]['genre']+"</div></li></div>";
+                              } 
+                          $('#search_panel').html(str);
+                        });
+
+                     });
 
 
 
