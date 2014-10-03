@@ -8,7 +8,7 @@ ini_set('display_errors', '1');
 		$img_src = $_POST['img_src'];
 		$id = $_POST['id'];
 		//make an sql query to get the app name !
-		$con= mysqli_connect('localhost','root','admin','pmp');	
+include_once("config.inc.php");
 
 					$sql_query_2 = "
 				SELECT app_desc.app_name,app_desc.version,app_desc.genre,images.icon, images.screenshot, rating.avg_rating, rating.rating_count,bundle.track_url

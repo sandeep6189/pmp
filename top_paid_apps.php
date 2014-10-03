@@ -3,7 +3,7 @@
 
 $query = $_POST["query"];
 
-$con= mysqli_connect('localhost','root','admin','pmp');	
+include_once("config.inc.php");
 
 	if (mysqli_connect_errno()) {
  		echo "Failed to connect to MySQL: " . mysqli_connect_error();
