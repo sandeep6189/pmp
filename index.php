@@ -40,7 +40,7 @@ if($detect->isMobile())
     <!--Profile container-->
     <div class="container profile" style="width:100%;padding:0px">
 
-            <div id="app_drop" ondrop="drop(event)" ondragover="allowDrop(event)" class="span12" style="width:100%;height:100%;margin:0px;overflow-y:scroll">
+            <div id="app_drop" ondrop="drop(event)" ondragover="allowDrop(event)" class="span12" style="width:100%;margin:0px">
                 <div class="row mobile-row">
                   <div class="col-xs-6" style="text-align:center;font-weight:bolder;margin-top:15px">
                       Protect My Privacy

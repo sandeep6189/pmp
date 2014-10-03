@@ -11,7 +11,7 @@ $con= mysqli_connect('localhost','root','admin','pmp');
 	else
 	{	
 		
-		$sql_query = "SELECT 
+		$sql_query = "SELECT DISTINCT
                 `bundle_id`, 
                 `app_name`                  
             FROM `app_desc` 
@@ -30,7 +30,7 @@ $con= mysqli_connect('localhost','root','admin','pmp');
 
 
 			$sql_query_2 = "
-				SELECT app_desc.app_name,app_desc.version,app_desc.genre,images.icon, images.screenshot, rating.avg_rating, rating.rating_count,bundle.track_url
+				SELECT app_desc.bundle_id,app_desc.app_name,app_desc.version,app_desc.genre,images.icon, images.screenshot, rating.avg_rating, rating.rating_count,bundle.track_url
 				FROM app_desc
 				INNER JOIN images ON app_desc.bundle_id = images.bundle_id
 				INNER JOIN rating ON images.bundle_id = rating.bundle_id

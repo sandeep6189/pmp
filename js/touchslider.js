@@ -47,6 +47,9 @@ touchslider = {
 
                 x += cellWidth + padding;
             });
+            $(gridid+" .cell").first().css({
+                left: '15px'
+            });
             
             /*
                Many of the mobile browsers resize the screen and therefore

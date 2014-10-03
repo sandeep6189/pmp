@@ -80,7 +80,7 @@
                             str = str+" <div class='cell'><img src="+icon_links[i]+" alt='"+track_url[i]+"' class='curve' id='"+bundle_id[i]+"'><br><span class ='icon-text'>"+name+"</span></div>";
                           };
                           $('#slidebar').html(str);
-                          touchslider.createSlidePanel('#slidebar', 60, 15);
+                          touchslider.createSlidePanel('#slidebar', 50, 20);
                     });
                     $.get('top_paid_apps.php',function(data){
                       var top_apps = eval('('+data+')');
@@ -116,7 +116,7 @@
                             str = str+" <div class='cell'><img src="+icon_links[i]+" alt='"+track_url[i]+"' class='curve' id="+bundle_id[i]+"><br><span class ='icon-text'>"+name+"</span></div>";  
                           };
                           $('#slidebar2').html(str);
-                          touchslider.createSlidePanel('#slidebar2', 60, 15);
+                          touchslider.createSlidePanel('#slidebar2', 50, 20);
                     });
 
                 var categories = ["Entertainment","Games","Photo & Video"]
@@ -158,7 +158,7 @@
                             str = str+" <div class='cell'><img src="+icon_links[i]+" alt='"+track_url[i]+"' class='curve' id="+bundle_id[i]+"></a><br><span class ='icon-text'>"+name+"</span></div>";  
                           };
                           $('#slidebar'+(index+3)).html(str);
-                          touchslider.createSlidePanel('#slidebar'+(index+3), 60, 15);
+                          touchslider.createSlidePanel('#slidebar'+(index+3), 50, 20);
                     });
 
                   });
@@ -197,6 +197,8 @@
                               $('#app_drop').html(data);
                          });
 
+                                                 $('div#app_drop').scrollTop(0);
+
                       });
 
                      $(document).delegate('#mobile_search','keypress',function(){
@@ -208,12 +210,37 @@
                             var str = "";
                             for(var i =0;i<s.length;i++)
                               {
-                                str+="<div class='mobile-row2' style='width:100%;height:75px;text-align:center;position:relative;margin-top:0px'><ul style='margin:0px'><li class='mob_lis' style='left:0px'><img src='"+s[i]['icon']+"' width=50 height=50 style='margin:10px;border-radius: 6px;border: 2px solid beige;' alt="+s[i]['track_url']+"></li><li class='mob_lis' style='left:24%;top:10px;font-weight:bolder;font-size:smaller;width:50%;'><div style='margin-left:16%;float:left'>"+s[i]['app_name']+"</div><br><div style='font-weight:100;margin-left:16%;float:left'>"+s[i]['version']+"</div><br><div style='font-weight:100;margin-left:16%;float:left;font-size:10px'>"+s[i]['genre']+"</div></li></div>";
+                                str+="<div class='mobile-row2' style='width:100%;height:75px;text-align:center;position:relative;margin-top:0px'><ul style='margin:0px'><li class='mob_lis' style='left:0px'><img src='"+s[i]['icon']+"' class='expa' width=50 height=50 style='margin:10px;border-radius: 6px;border: 2px solid beige;' alt="+s[i]['track_url']+" id='"+s[i]['bundle_id']+"'></li><li class='mob_lis' style='left:18%;top:10px;font-weight:bolder;font-size:smaller;width:80%;'><div style='margin-left:16%;float:left'>"+s[i]['app_name']+"</div><br><div style='font-weight:100;margin-left:16%;float:left'>"+s[i]['version']+"</div><br><div style='font-weight:100;margin-left:16%;float:left;font-size:10px'>"+s[i]['genre']+"</div></li></div>";
                               } 
                           $('#search_panel').html(str);
                         });
+                                                $('div#app_drop').scrollTop(0);
 
                      });
+
+                    $(document).delegate('.expa', 'click', function() {
+                        dump_screen = $('#app_drop').html();
+                        //now we can give the id , track_url and img source to the next u.i screen
+                        //var div_id = $(this).closest('div').parents('div').attr('id');
+                        //alert(div_id);
+                         $.post('search_results.php',{img_src:this.src,url:this.alt,id:this.id},function(data){
+                              $('#app_drop').html(data);
+
+                         }); 
+
+                         $('div#app_drop').scrollTop(0); 
+
+                      });
+                    $(document).delegate('ul#ind_app_details>li', 'click', function() {
+                        var i = $(this).index();
+                        alert(i);
+                        $('.arrow_down>div').each(function(){
+                            //$(this).css("display:none");
+                            alert($(this).children());
+                        });
+//                        $('ul#arrow_down>li').index(i).show();
+                        
+                      });
 
 
 

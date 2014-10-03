@@ -1,6 +1,7 @@
 <?php
 
 
+ini_set('display_errors','1');
 
 $con= mysqli_connect('localhost','root','admin','pmp');	
 
@@ -18,10 +19,15 @@ $con= mysqli_connect('localhost','root','admin','pmp');
 			";
 
  			 $result2=mysqli_query($con,$sql_query_2);
- 			 $join_row=mysqli_fetch_all($result2,MYSQLI_ASSOC);  
 
+ 			 //$join_row=mysqli_fetch_all($result2,MYSQLI_ASSOC);  
+
+ 			 $data = [];
+				while ($row = $result2->fetch_assoc()) {
+    				$data[] = $row;
+				}
 
 			//$rows=mysqli_fetch_all($result,MYSQLI_NUM);
-		echo json_encode($join_row);
+		echo json_encode($data);
 	}
 ?>

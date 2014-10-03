@@ -2,23 +2,26 @@
 
 ini_set('display_errors', '1');
 
+
+
 		$url = $_POST['url'];
 		$img_src = $_POST['img_src'];
 		$id = $_POST['id'];
-	//make an sql query to get the app name !
+		//make an sql query to get the app name !
 		$con= mysqli_connect('localhost','root','admin','pmp');	
 
-			
-
-			$sql_query_2 ="
-				SELECT * 
-				FROM  `top_paid_apps` 
-				WHERE bundle_id = ".$id."
-				UNION
-				SELECT *
-				FROM  `top_free_apps`
-				WHERE bundle_id = ".$id."
+					$sql_query_2 = "
+				SELECT app_desc.app_name,app_desc.version,app_desc.genre,images.icon, images.screenshot, rating.avg_rating, rating.rating_count,bundle.track_url
+				FROM app_desc
+				INNER JOIN images ON app_desc.bundle_id = images.bundle_id
+				INNER JOIN rating ON images.bundle_id = rating.bundle_id
+				INNER JOIN bundle ON rating.bundle_id = bundle.bundle_id
+				WHERE app_desc.bundle_id =  '".$id."'
+				LIMIT 10
 			";
+
+			//echo $id;
+
 
  			 $result2=mysqli_query($con,$sql_query_2);
              $join_row=mysqli_fetch_array($result2,MYSQLI_ASSOC);  
@@ -26,15 +29,13 @@ ini_set('display_errors', '1');
             $app_name = $join_row['app_name'];
             $version = $join_row['version'];
             $genre = $join_row['genre'];
-
             $rating = $join_row['avg_rating'];
-
             if(strlen($app_name)>16)
             {
             	$app_name = substr($app_name,0,14)."...";
             }
 
-            //now we have to make a function to get the stars images based on the rating ! 
+            //to make stars dynamically
             $str = "";
             $count = 0;
 
@@ -60,9 +61,11 @@ ini_set('display_errors', '1');
             }
 
 
+
+
 echo <<< END
 
-<div style='width:100%;color:#fff;margin:0px'>
+<div style='width:100%;background:#222;color:#fff;margin:0px'>
 	<div class='mobile-row2' style='width:100%;height:50px;text-align:center;position:relative'>
 		<h4 class='info-pmp'>
 			Inside App
@@ -92,13 +95,14 @@ echo <<< END
 				
 				<li class='mob_lis' style='right:0px'>
 					<p id="app_ratings" style='margin-top:20px;font-size:12px'>
-                		$str
-                    </p>	
+                	
+              </p>	
 				</li>
 			</ul>
 	</div>
 
 
+	
 	<div class='mobile-row2' style='width:100%;height:375px;text-align:center;position:relative;margin-top:0px'>
 			<div style="background:rgba(0, 0, 0, 0.31)">
 			<ul style="margin-left: 0px;font-size: smaller;font-weight: bolder;" id='ind_app_details'>
