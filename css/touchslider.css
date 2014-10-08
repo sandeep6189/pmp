@@ -64,12 +64,36 @@
     line-height: 22px;
     font-family:Georgia,"Times New Roman","Bitstream Charter",Times,serif;
     font-family: Verdana,Arial,Sans-serif;
+    overflow: hidden;
 }
 #slidecont2 {
     font-size: 18px;
     line-height: 22px;
     font-family:Georgia,"Times New Roman","Bitstream Charter",Times,serif;
     font-family: Verdana,Arial,Sans-serif;
+    overflow: hidden;
+}
+
+#slidecont3 {
+    font-size: 18px;
+    line-height: 22px;
+    font-family:Georgia,"Times New Roman","Bitstream Charter",Times,serif;
+    font-family: Verdana,Arial,Sans-serif;
+    overflow: hidden;
+}
+#slidecont4 {
+    font-size: 18px;
+    line-height: 22px;
+    font-family:Georgia,"Times New Roman","Bitstream Charter",Times,serif;
+    font-family: Verdana,Arial,Sans-serif;
+    overflow: hidden;
+}
+#slidecont5 {
+    font-size: 18px;
+    line-height: 22px;
+    font-family:Georgia,"Times New Roman","Bitstream Charter",Times,serif;
+    font-family: Verdana,Arial,Sans-serif;
+    overflow: hidden;
 }
 
 .touchslidearticle #slidecont {

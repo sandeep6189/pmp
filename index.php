@@ -23,18 +23,17 @@ if($detect->isMobile())
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+     <link rel="stylesheet" type="text/css" href="jquery.mobile.custom.theme.min.css">
     <link href="css/style.css" rel="stylesheet">
     <link href="font/css/fontello.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
-        <link type="text/css" rel="stylesheet" href="css/touchslider.css" />
-       
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-   <script type="text/javascript" src="js/touchslider.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/touchslider.css" />
 
+  <script src="js/jquery-1.10.2.js"></script>
+  <script type="text/javascript" src="js/jquery.mobile.custom.min.js"></script>
+   <script type="text/javascript" src="js/swipe.js"></script>
   <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
-   <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-
     </head>
     <body>
     <!--Profile container-->
@@ -46,7 +45,7 @@ if($detect->isMobile())
                       Protect My Privacy
                   </div>
                     <div class="col-xs-6 pull-right">
-                      <button class="btn btn-info btn-primary btn-sm" style="margin-top: -40px;margin-right:10px;background-image: linear-gradient(to bottom, #424242, #1A1919);" id="info_button">Info</button>
+                      <button class="btn btn-info btn-primary btn-sm" style="margin-top: -40px;margin-right:10px;background-image: linear-gradient(to bottom, #424242, #1A1919);width:50px;margin-top:-24px;" id="info_button">Info</button>
                     </div>
                 </div>
                 <div class="row mobile-row">
@@ -64,8 +63,8 @@ if($detect->isMobile())
   padding-left: 15px;" id='get_top_apps'> See All ></span>
                     </div>
                   </div>
-                  <div class="row mobile-row" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont">                    
-                      <div id="slidebar"></div>   
+                  <div class="row mobile-row swipe" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont">                    
+                      <div class="swipe-wrap" id="slidebar"></div>   
                   </div>
                   <div class="row mobile-row">
                     <div class="col-xs-6" style="font-weight:bolder;margin:5px">
@@ -73,7 +72,7 @@ if($detect->isMobile())
   padding-left: 15px;" id='get_top_apps'> See All ></span>
                     </div>
                   </div>
-                  <div class="row mobile-row" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont2">                    
+                  <div class="row mobile-row swipe" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont2">                    
                       <div id="slidebar2"></div>   
                   </div>
                   <div class="row mobile-row">
@@ -82,7 +81,7 @@ if($detect->isMobile())
   padding-left: 15px;" id='get_top_apps'> See All ></span>
                     </div>
                   </div>
-                  <div class="row mobile-row" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont3">                    
+                  <div class="row mobile-row swipe" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont3">                    
                       <div id="slidebar3"></div>   
                   </div>
                   <div class="row mobile-row">
@@ -91,7 +90,7 @@ if($detect->isMobile())
   padding-left: 15px;" id='get_top_apps'> See All ></span>
                     </div>
                   </div>
-                  <div class="row mobile-row" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont3">                    
+                  <div class="row mobile-row swipe" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont4">                    
                       <div id="slidebar4"></div>   
                   </div>
                   <div class="row mobile-row">
@@ -100,8 +99,8 @@ if($detect->isMobile())
   padding-left: 15px;" id='get_top_apps'> See All ></span>
                     </div>
                   </div>
-                  <div class="row mobile-row" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont3">                    
-                      <div id="slidebar5"></div>   
+                  <div class="row mobile-row swipe" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont5">                    
+                      <div  id="slidebar5"></div>   
                   </div>
                 </div>
 
@@ -188,13 +187,11 @@ else
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
         <link type="text/css" rel="stylesheet" href="css/touchslider.css" />
-       
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-   <script type="text/javascript" src="js/touchslider.js"></script>
-
+       <link rel="stylesheet" type="text/css" href="css/jquery.mobile.custom.theme.min.css">
+  <script src="js/jquery-1.10.2.js"></script>
+  <script src="js/touchslider.js"></script>
+  
   <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
-   <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-
     </head>
     <body>
     <div class="navbar">
@@ -357,7 +354,7 @@ else
     </div>
     <!-- Scripts -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/synergy.js"></script>
+    <script src="js/copy_main.js"></script>
     </body>
 <div id="screen_data" style="display:none">
 <div id="mainContent" data-iscroll="" data-role="content" class="ui-content iscroll-wrapper" role="main" style="padding: 0px; height: 418px; overflow: hidden;">     

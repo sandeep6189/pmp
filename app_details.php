@@ -108,10 +108,10 @@ echo <<< END
 			</ul>
 			</div>
 			<div>
-				<ul style="margin-left:0;">
-					<li class='arrow_down' style="display:inline"><div style="width:0;height:0;border-left: 10px solid transparent;border-right: 10px solid transparent;border-top: 10px solid rgba(0, 0, 0, 0.31);position:absolute;left:10%;top:20px;"></div></li>
-					<li class='arrow_down' style="display:inline"><div style="width:0;height:0;border-left: 10px solid transparent;border-right: 10px solid transparent;border-top: 10px solid rgba(0, 0, 0, 0.31);position:absolute;top:20px;left:34%;display:none"></div></li>
-					<li class='arrow_down' style="display:inline"><div style="width:0;height:0;border-left: 10px solid transparent;border-right: 10px solid transparent;border-top: 10px solid rgba(0, 0, 0, 0.31);position:absolute;top:20px;left:67%;display:none"></div></li>
+				<ul style="margin-left:0;" class='arrow_down'>
+					<li style="display:inline"><div style="width:0;height:0;border-left: 10px solid transparent;border-right: 10px solid transparent;border-top: 10px solid rgba(0, 0, 0, 0.31);position:absolute;left:10%;top:20px;"></div></li>
+					<li  style="display:inline;display:none"><div style="width:0;height:0;border-left: 10px solid transparent;border-right: 10px solid transparent;border-top: 10px solid rgba(0, 0, 0, 0.31);position:absolute;top:20px;left:34%;"></div></li>
+					<li  style="display:inline;display:none"><div style="width:0;height:0;border-left: 10px solid transparent;border-right: 10px solid transparent;border-top: 10px solid rgba(0, 0, 0, 0.31);position:absolute;top:20px;left:67%;"></div></li>
 				</ul>	
 			</div>
 	</div>
