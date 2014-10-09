@@ -60,7 +60,7 @@ if($detect->isMobile())
                   <div class="row mobile-row">
                     <div class="col-xs-6" style="font-weight:bolder;margin:5px">
                        <span>Top Free Apps</span><span class="pull-right" style="border-left: solid 1px white;
-  padding-left: 15px;" id='get_top_apps'> See All ></span>
+  padding-left: 15px;" id='free_apps'> See All ></span>
                     </div>
                   </div>
                   <div class="row mobile-row swipe" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont">                    
@@ -69,7 +69,7 @@ if($detect->isMobile())
                   <div class="row mobile-row">
                     <div class="col-xs-6" style="font-weight:bolder;margin:5px">
                        <span>Top Paid Apps</span><span class="pull-right" style="border-left: solid 1px white;
-  padding-left: 15px;" id='get_top_apps'> See All ></span>
+  padding-left: 15px;" id='paid_apps'> See All ></span>
                     </div>
                   </div>
                   <div class="row mobile-row swipe" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont2">                    
@@ -78,7 +78,7 @@ if($detect->isMobile())
                   <div class="row mobile-row">
                     <div class="col-xs-6" style="font-weight:bolder;margin:5px">
                        <span>Entertainment</span><span class="pull-right" style="border-left: solid 1px white;
-  padding-left: 15px;" id='get_top_apps'> See All ></span>
+  padding-left: 15px;" id='fun'> See All ></span>
                     </div>
                   </div>
                   <div class="row mobile-row swipe" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont3">                    
@@ -87,7 +87,7 @@ if($detect->isMobile())
                   <div class="row mobile-row">
                     <div class="col-xs-6" style="font-weight:bolder;margin:5px">
                        <span>Games</span><span class="pull-right" style="border-left: solid 1px white;
-  padding-left: 15px;" id='get_top_apps'> See All ></span>
+  padding-left: 15px;" id='games'> See All ></span>
                     </div>
                   </div>
                   <div class="row mobile-row swipe" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont4">                    
@@ -96,7 +96,7 @@ if($detect->isMobile())
                   <div class="row mobile-row">
                     <div class="col-xs-6" style="font-weight:bolder;margin:5px">
                        <span>Photo and Videos</span><span class="pull-right" style="border-left: solid 1px white;
-  padding-left: 15px;" id='get_top_apps'> See All ></span>
+  padding-left: 15px;" id='photo'> See All ></span>
                     </div>
                   </div>
                   <div class="row mobile-row swipe" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont5">                    
@@ -252,7 +252,7 @@ else
                   <div class="row mobile-row">
                     <div class="col-xs-6" style="font-weight:bolder;margin:5px">
                        <span>Top Free Apps</span><span class="pull-right" style="border-left: solid 1px white;
-  padding-left: 15px;" id='get_top_apps'> See All ></span>
+  padding-left: 15px;" id='free_apps'> See All ></span>
                     </div>
                   </div>
                   <div class="row mobile-row" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont">                    
@@ -261,7 +261,7 @@ else
                   <div class="row mobile-row">
                     <div class="col-xs-6" style="font-weight:bolder;margin:5px">
                        <span>Top Paid Apps</span><span class="pull-right" style="border-left: solid 1px white;
-  padding-left: 15px;" id='get_top_apps'> See All ></span>
+  padding-left: 15px;" id='paid_apps'> See All ></span>
                     </div>
                   </div>
                   <div class="row mobile-row" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont2">                    
@@ -270,7 +270,7 @@ else
                   <div class="row mobile-row">
                     <div class="col-xs-6" style="font-weight:bolder;margin:5px">
                        <span>Entertainment</span><span class="pull-right" style="border-left: solid 1px white;
-  padding-left: 15px;" id='get_top_apps'> See All ></span>
+  padding-left: 15px;" id='fun'> See All ></span>
                     </div>
                   </div>
                   <div class="row mobile-row" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont3">                    
@@ -279,7 +279,7 @@ else
                   <div class="row mobile-row">
                     <div class="col-xs-6" style="font-weight:bolder;margin:5px">
                        <span>Games</span><span class="pull-right" style="border-left: solid 1px white;
-  padding-left: 15px;" id='get_top_apps'> See All ></span>
+  padding-left: 15px;" id='games'> See All ></span>
                     </div>
                   </div>
                   <div class="row mobile-row" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont3">                    
@@ -288,7 +288,7 @@ else
                   <div class="row mobile-row">
                     <div class="col-xs-6" style="font-weight:bolder;margin:5px">
                        <span>Photo and Videos</span><span class="pull-right" style="border-left: solid 1px white;
-  padding-left: 15px;" id='get_top_apps'> See All ></span>
+  padding-left: 15px;" id='photo'> See All ></span>
                     </div>
                   </div>
                   <div class="row mobile-row" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont3">                    
