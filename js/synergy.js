@@ -54,7 +54,7 @@
                         //take the current dump of the files and store it in a global variable 
                         dump_screen = $('#app_drop').html();
                         //now we can replace it with info screen 
-                        $.get('js/info.php',function(data){
+                        $.get('info.php',function(data){
 
                             $('#app_drop').html(data);
 
@@ -78,6 +78,10 @@
                         window.location.href = "index.php";
                       });
 
+                        $(document).delegate('#back-main', 'tap', function() {
+                        window.location.href = "index.php";
+                      });
+
                      $(document).delegate('.curve', 'click', function() {
                         
                         dump_screen = $('#app_drop').html();
@@ -86,8 +90,12 @@
                         //alert(div_id);
                          $.post('app_details.php',{img_src:this.src,url:this.alt,id:this.id,div_id:div_id},function(data){
                               $('#app_drop').html(data);
+
+                             });
+
+                              $('div#app_drop').scrollTop(0);
                          });
-                           $('div#app_drop').scrollTop(0);
+                          
 
                       });
 
@@ -99,7 +107,17 @@
                         //alert(div_id);
                          $.post('app_details.php',{img_src:this.src,url:this.alt,id:this.id,div_id:div_id},function(data){
                               $('#app_drop').html(data);
-                         });
+                              $('#myList').listview();
+                              window.mySwipe = new Swipe(document.getElementById('slider-content'), {
+                              //startSlide: 2,
+                              //speed: 400,
+                              //auto: 3000,
+                              continuous: false,
+                              //disableScroll: false,
+                              stopPropagation: true,
+                              //callback: function(index, elem) {},
+                              //transitionEnd: function(index, elem) {}
+                          });
 
                           $('div#app_drop').scrollTop(0);
 
@@ -117,7 +135,9 @@
                                 str+="<div class='mobile-row2' style='width:100%;height:75px;text-align:center;position:relative;margin-top:0px'><ul style='margin:0px'><li class='mob_lis' style='left:0px'><img src='"+s[i]['icon']+"' class='expa' width=50 height=50 style='margin:10px;border-radius: 6px;border: 2px solid beige;' alt="+s[i]['track_url']+" id='"+s[i]['bundle_id']+"'></li><li class='mob_lis' style='left:18%;top:10px;font-weight:bolder;font-size:smaller;width:80%;'><div style='margin-left:16%;float:left'>"+s[i]['app_name']+"</div><br><div style='font-weight:100;margin-left:16%;float:left'>"+s[i]['version']+"</div><br><div style='font-weight:100;margin-left:16%;float:left;font-size:10px'>"+s[i]['genre']+"</div></li></div>";
                               } 
                           $('#search_panel').html(str);
+                          $('#back-main').css("display","inline");
                         });
+
                         $('div#app_drop').scrollTop(0);
 
                      });
@@ -171,10 +191,10 @@
                       localStorage.setItem("free_apps",data);
                       var top_apps = eval('('+data+')');
                       //alert(top_apps[0]["app_name"]);
-
                           var str = parse_data(top_apps);
+                          $('#slidebar').html(str);      
 
-                          $('#slidebar').html(str);                       
+                          //slider with options                 
                            window.mySwipe = new Swipe(document.getElementById('slidecont'), {
                           //startSlide: 2,
                           //speed: 400,

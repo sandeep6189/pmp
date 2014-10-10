@@ -7,8 +7,6 @@ $detect = new Mobile_Detect();
 if($detect->isMobile())
   {
 ?>
-   
-
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -44,13 +42,20 @@ if($detect->isMobile())
                   <div class="col-xs-6" style="text-align:center;font-weight:bolder;margin-top:15px">
                       <!--button class="btn btn-info btn-sm" style="margin-top: -40px;margin-right:10px;background-image: linear-gradient(to bottom, #424242, #1A1919);width:70px;margin-top:2%;" id="info_button">Info</button>
                     <-->
-                    Protect My Privacy <span style="float:right;margin-top:-15px"><a href="index.html" data-type="horizontal" data-role="button" data-inline="true" data-mini='true' id="info_button" data-theme="a">Info</a></span>
+                    <span id='back-main' data-type='horizontal' style="margin-top:-18px;position:absolute;float:left;margin-left:-25%;display:none">
+                        <div class='arrow-left'>
+                        </div>
+                        <div class='rect' style='padding-top:5px'>
+                       <span class='rect-text'>Back</span>
+                    </div>
+                  </span>
+                    <span data-type='horizontal'>Protect My Privacy</span><span style="float:right;margin-top:-15px"><a href="#" data-type="horizontal" data-role="button" data-inline="true" data-mini='true' id="info_button" data-theme="c">Info</a></span>
                     </div>
                 </div>
                 <div class="row mobile-row">
                   <div class="col-xs-6" style="text-align:center;font-weight:bolder;margin-top:15px">
                       <div>
-                          <input placeholder='Search' data-icon='search' style="width:100%;margin:0" type="search" name="search" value="" id="mobile_search">
+                          <input placeholder='Search' type="search" name="search" value="" id="mobile_search">
                       </div>
                   </div>
                 </div>

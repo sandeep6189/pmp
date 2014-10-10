@@ -73,7 +73,7 @@ echo <<< END
 		<div id='back'>
 			<div class='arrow-left'>
 			</div>
-			<div class='rect'>
+			<div class='rect' style='padding-top:5px'>
 			<span class='rect-text'>Back</span>
 			</div>
 		</div>

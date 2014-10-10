@@ -1,4 +1,3 @@
-
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -13,60 +12,93 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.custom.structure.min.css">
     <link href="css/style.css" rel="stylesheet">
     <link href="font/css/fontello.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
-        <link type="text/css" rel="stylesheet" href="css/touchslider.css" />
-       
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-   <script type="text/javascript" src="js/touchslider.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/touchslider.css" />
 
+  <script src="js/jquery-1.10.2.js"></script>
+  <script type="text/javascript" src="js/jquery.mobile.custom.min.js"></script>
+   <script type="text/javascript" src="js/swipe.js"></script>
   <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
-   <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-
     </head>
     <body>
     <!--Profile container-->
     <div class="container profile" style="width:100%;padding:0px">
 
-            <div id="app_drop" ondrop="drop(event)" ondragover="allowDrop(event)" class="span12" style="width:100%;height:100%;margin:0px">
+            <div id="app_drop" ondrop="drop(event)" ondragover="allowDrop(event)" class="span12" style="width:100%;margin:0px">
                 <div class="row mobile-row">
                   <div class="col-xs-6" style="text-align:center;font-weight:bolder;margin-top:15px">
-                      Protect My Privacy
-                  </div>
-                    <div class="col-xs-6 pull-right">
-                      <button class="btn btn-info btn-primary btn-sm" style="margin-top: -40px;margin-right:10px;background-image: linear-gradient(to bottom, #424242, #1A1919);">Info</button>
+                      <!--button class="btn btn-info btn-sm" style="margin-top: -40px;margin-right:10px;background-image: linear-gradient(to bottom, #424242, #1A1919);width:70px;margin-top:2%;" id="info_button">Info</button>
+                    <-->
+                    <span id='back-main' data-type='horizontal' style="margin-top:-18px;position:absolute;float:left;margin-left:-25%;display:none">
+                        <div class='arrow-left'>
+                        </div>
+                        <div class='rect' style='padding-top:5px'>
+                       <span class='rect-text'>Back</span>
+                    </div>
+                  </span>
+                    <span data-type='horizontal'>Protect My Privacy</span><span style="float:right;margin-top:-15px"><a href="#" data-type="horizontal" data-role="button" data-inline="true" data-mini='true' id="info_button" data-theme="c">Info</a></span>
                     </div>
                 </div>
                 <div class="row mobile-row">
                   <div class="col-xs-6" style="text-align:center;font-weight:bolder;margin-top:15px">
-                      <div class="right-inner-addon ">
-                          <i class="icon-search"></i>
-                          <input type="search" class="form-control" placeholder="Search" / style="height:3px;line-height:10px">
+                      <div>
+                          <input placeholder='Search' data-icon='search' style="width:100%;margin:0" type="search" name="search" value="" id="mobile_search">
                       </div>
                   </div>
-                </div> 
-                <div class="row mobile-row">
-                  <div class="col-xs-6" style="font-weight:bolder;margin:5px">
-                     <span>Top Free Apps</span><span class="pull-right" style="border-left: solid 1px white;
-padding-left: 15px;" id='get_top_apps'> See All ></span>
+                </div>
+                <div id="search_panel"> 
+                  <div class="row mobile-row">
+                    <div class="col-xs-6" style="font-weight:bolder;margin:5px">
+                       <span>Top Free Apps</span><span class="pull-right" style="border-left: solid 1px white;
+  padding-left: 15px;" id='free_apps'> See All ></span>
+                    </div>
+                  </div>
+                  <div class="row mobile-row swipe" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont">                    
+                      <div class="swipe-wrap" id="slidebar"></div>   
+                  </div>
+                  <div class="row mobile-row">
+                    <div class="col-xs-6" style="font-weight:bolder;margin:5px">
+                       <span>Top Paid Apps</span><span class="pull-right" style="border-left: solid 1px white;
+  padding-left: 15px;" id='paid_apps'> See All ></span>
+                    </div>
+                  </div>
+                  <div class="row mobile-row swipe" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont2">                    
+                      <div id="slidebar2"></div>   
+                  </div>
+                  <div class="row mobile-row">
+                    <div class="col-xs-6" style="font-weight:bolder;margin:5px">
+                       <span>Entertainment</span><span class="pull-right" style="border-left: solid 1px white;
+  padding-left: 15px;" id='fun'> See All ></span>
+                    </div>
+                  </div>
+                  <div class="row mobile-row swipe" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont3">                    
+                      <div id="slidebar3"></div>   
+                  </div>
+                  <div class="row mobile-row">
+                    <div class="col-xs-6" style="font-weight:bolder;margin:5px">
+                       <span>Games</span><span class="pull-right" style="border-left: solid 1px white;
+  padding-left: 15px;" id='games'> See All ></span>
+                    </div>
+                  </div>
+                  <div class="row mobile-row swipe" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont4">                    
+                      <div id="slidebar4"></div>   
+                  </div>
+                  <div class="row mobile-row">
+                    <div class="col-xs-6" style="font-weight:bolder;margin:5px">
+                       <span>Photo and Videos</span><span class="pull-right" style="border-left: solid 1px white;
+  padding-left: 15px;" id='photo'> See All ></span>
+                    </div>
+                  </div>
+                  <div class="row mobile-row swipe" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont5">                    
+                      <div  id="slidebar5"></div>   
                   </div>
                 </div>
-                <div class="row mobile-row" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont">                    
-                    <div id="slidebar"></div>   
-                  
-                </div>
-                <div class="row mobile-row">
-                  <div class="col-xs-6" style="font-weight:bolder;margin:5px">
-                     <span>Top Paid Apps</span><span class="pull-right" style="border-left: solid 1px white;
-padding-left: 15px;" id='get_top_apps'> See All ></span>
-                  </div>
-                </div>
-                <div class="row mobile-row" style="width: auto;overflow: hidden;height: 95px;white-space: nowrap;-webkit-touch-overflow:scroll;" id="slidecont">                    
-                    <div id="slidebar2"></div>   
-                    
-                </div>
+
+
 
             </div>
           </div>
@@ -118,3 +150,5 @@ padding-left: 15px;" id='get_top_apps'> See All ></span>
     </div></div></div>
 </div>
     </html>
+
+

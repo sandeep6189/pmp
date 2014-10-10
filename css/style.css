@@ -350,18 +350,18 @@ text-align: center;
 .arrow-left {
 	width: 0; 
 	height: 0; 
-	border-top: 13px solid transparent;
-	border-bottom: 13px solid transparent; 
+	border-top: 15px solid transparent;
+	border-bottom: 15px solid transparent; 
 	position: absolute;
-	border-right:13px solid rgb(82, 82, 82)	; 
+	border-right:15px solid rgb(82, 82, 82)	; 
 }
 .rect
 {
-	width:40px;
-	height: 26px;
+	width:45px;
+	height: 25px;
 	position: absolute;
 	background: rgb(82, 82, 82);
-margin-left: 13px;
+margin-left: 15px;
 border-radius: 0px 2px 2px 0px;
 
 }
@@ -373,6 +373,12 @@ margin-left: -2px;
 font-size: small;
 }
 #back
+{
+	position: relative;
+	padding: 12px;
+	cursor: pointer;
+}
+#back-main
 {
 	position: relative;
 	padding: 12px;
@@ -410,4 +416,13 @@ left: 15px;
   float:left;
   width:100%;
   position: relative;
+}
+#myList a
+{
+	background-color: #333;
+border-color: #1f1f1f;
+color: #fff;
+text-shadow: 0 1px 0 #111;
+font-size: 13px;
+}
 }

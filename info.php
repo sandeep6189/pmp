@@ -7,15 +7,19 @@ echo <<< END
 		<h4 class='info-pmp'>
 			Info
 		</h4>
+		<!--button class='btn btn-sm btn-info' id='back' style='float:left;padding:6px;border-radius:5px;margin:15px;font-weight:bolder'>Back</button>	
+		<-->
 		<div id='back'>
 			<div class='arrow-left'>
 			</div>
-			<div class='rect'>
+			<div class='rect' style='padding-top:5px'>
 			<span class='rect-text'>Back</span>
 			</div>
 		</div>
 	</div>
+	<div>
 
+	</div>
 	<div class='mobile-row2' style='width:100%;height:85px;text-align:center;position:relative;margin-top:0px'>
 		<button class='btn btn-info-2 btn-primary btn-sm' style='width: 60%;margin-top: 8%;font-weight: bolder;height:40px'>Why Pmp ?</button>
 	</div>
