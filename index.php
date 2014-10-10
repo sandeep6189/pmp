@@ -55,7 +55,7 @@ if($detect->isMobile())
                 <div class="row mobile-row">
                   <div class="col-xs-6" style="text-align:center;font-weight:bolder;margin-top:15px">
                       <div>
-                          <input placeholder='Search' type="search" name="search" value="" id="mobile_search">
+                        <input type="search" class="form-control" placeholder="Search" id="mobile_search">
                       </div>
                   </div>
                 </div>

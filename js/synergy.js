@@ -2,49 +2,6 @@
 
                     main_page();
 
-                     //make a call to search.php onchange
-                      $('#query').keypress(function(){
-
-                          var query = $("#query").val();
-                          $.post("search.php",{query:query}, function( data ) {
-
-                            var apps = eval('('+data+')');
-                            var names = [];
-                            var icon_links = [];
-                            var track_url = [];
-                            var rating = [];
-                            for(var i=0;i<apps.length;i++)
-                            {
-                                //console.log(apps[i]["app_name"]);
-                                names[i] = apps[i]["app_name"];
-                                icon_links[i] = apps[i]["icon"];
-                                track_url[i] = apps[i]["track_url"];
-                                rating[i] = apps[i]["avg_rating"];
-                            }
-
-                            //the following function helps us to enable auto complete in the query input box
-
-                            $( "#query" ).autocomplete({
-                              source: names
-                            });                            
-
-                          //now place the icons in the apps_tray 
-                          var str ="<div class='row social'><h1>Searched Apps</h1><ul class='social-icons'>";
-
-                          for (var i = 0;i<icon_links.length ;i++) {
-                              var alt_json = {};
-                              alt_json.url = track_url[i];
-                              alt_json.rating = rating[i];
-
-                              str+="<li><a href='"+track_url[i]+"'><img src='"+icon_links[i]+"'width='50' height='50' alt='"+JSON.stringify(alt_json)+"' draggable='true' ondragstart='drag(event)' id='drag"+(i+1)+"'></a></li>";                                  
-                          }
-                          str+="</ul></div>";
-                          $('#apps_tray').html(str);
-                          //$('#app_drop').html(str);    
-                          });
-                        
-                            
-                      });
                   // Info button click
                   var dump_screen = "";
 
@@ -78,12 +35,11 @@
                         window.location.href = "index.php";
                       });
 
-                        $(document).delegate('#back-main', 'tap', function() {
+                    $(document).delegate('#back-main', 'tap', function() {
                         window.location.href = "index.php";
                       });
 
                      $(document).delegate('.curve', 'click', function() {
-                        
                         dump_screen = $('#app_drop').html();
                         //now we can give the id , track_url and img source to the next u.i screen
                         var div_id = $(this).closest('div').parents('div').attr('id');
@@ -95,12 +51,8 @@
 
                               $('div#app_drop').scrollTop(0);
                          });
-                          
-
-                      });
 
                      $(document).delegate('.curve', 'tap', function() {
-                        
                         dump_screen = $('#app_drop').html();
                         //now we can give the id , track_url and img source to the next u.i screen
                         var div_id = $(this).closest('div').parents('div').attr('id');
@@ -120,8 +72,8 @@
                           });
 
                           $('div#app_drop').scrollTop(0);
-
                       });
+                    });
 
                      $(document).delegate('#mobile_search','keypress',function(){
                         var panel_data =  $('#search_panel').html();
@@ -141,6 +93,26 @@
                         $('div#app_drop').scrollTop(0);
 
                      });
+
+                     $(document).delegate('#mobile_search','submit',function(){
+                        var panel_data =  $('#search_panel').html();
+                        $('#search_panel').html("");
+                        var query = $('#mobile_search').val();
+                        $.post('search.php',{query:query},function(data){
+                            var s = eval('('+data+')');
+                            var str = "";
+                            for(var i =0;i<s.length;i++)
+                              {
+                                str+="<div class='mobile-row2' style='width:100%;height:75px;text-align:center;position:relative;margin-top:0px'><ul style='margin:0px'><li class='mob_lis' style='left:0px'><img src='"+s[i]['icon']+"' class='expa' width=50 height=50 style='margin:10px;border-radius: 6px;border: 2px solid beige;' alt="+s[i]['track_url']+" id='"+s[i]['bundle_id']+"'></li><li class='mob_lis' style='left:18%;top:10px;font-weight:bolder;font-size:smaller;width:80%;'><div style='margin-left:16%;float:left'>"+s[i]['app_name']+"</div><br><div style='font-weight:100;margin-left:16%;float:left'>"+s[i]['version']+"</div><br><div style='font-weight:100;margin-left:16%;float:left;font-size:10px'>"+s[i]['genre']+"</div></li></div>";
+                              } 
+                          $('#search_panel').html(str);
+                          $('#back-main').css("display","inline");
+                        });
+
+                        $('div#app_drop').scrollTop(0);
+
+                     });
+
 
                     $(document).delegate('.expa', 'tap', function() {
                         //now we can give the id , track_url and img source to the next u.i screen
@@ -172,6 +144,18 @@
                       $.each(see_all,function(index,value)
                         {
                           $(document).delegate("#"+value,"tap",function(){
+                              var data = localStorage.getItem(value);
+                              var top_apps = eval('('+data+')');
+
+                              var str = parse_search(top_apps);
+                              $('#search_panel').html(str);
+                            });
+                          $('div#app_drop').scrollTop(0);
+                        });
+
+                      $.each(see_all,function(index,value)
+                        {
+                          $(document).delegate("#"+value,"click",function(){
                               var data = localStorage.getItem(value);
                               var top_apps = eval('('+data+')');
 
