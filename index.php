@@ -23,7 +23,7 @@ if($detect->isMobile())
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-     <link rel="stylesheet" type="text/css" href="jquery.mobile.custom.theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.custom.structure.min.css">
     <link href="css/style.css" rel="stylesheet">
     <link href="font/css/fontello.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -42,17 +42,15 @@ if($detect->isMobile())
             <div id="app_drop" ondrop="drop(event)" ondragover="allowDrop(event)" class="span12" style="width:100%;margin:0px">
                 <div class="row mobile-row">
                   <div class="col-xs-6" style="text-align:center;font-weight:bolder;margin-top:15px">
-                      Protect My Privacy
-                  </div>
-                    <div class="col-xs-6 pull-right">
-                      <button class="btn btn-info btn-primary btn-sm" style="margin-top: -40px;margin-right:10px;background-image: linear-gradient(to bottom, #424242, #1A1919);width:50px;margin-top:-24px;" id="info_button">Info</button>
+                      <!--button class="btn btn-info btn-sm" style="margin-top: -40px;margin-right:10px;background-image: linear-gradient(to bottom, #424242, #1A1919);width:70px;margin-top:2%;" id="info_button">Info</button>
+                    <-->
+                    Protect My Privacy <span style="float:right;margin-top:-15px"><a href="index.html" data-type="horizontal" data-role="button" data-inline="true" data-mini='true' id="info_button" data-theme="a">Info</a></span>
                     </div>
                 </div>
                 <div class="row mobile-row">
                   <div class="col-xs-6" style="text-align:center;font-weight:bolder;margin-top:15px">
-                      <div class="right-inner-addon ">
-                          <i class="icon-search"></i>
-                          <input type="search" class="form-control" placeholder="Search" style="height:3px;line-height:10px" id='mobile_search'>
+                      <div>
+                          <input placeholder='Search' data-icon='search' style="width:100%;margin:0" type="search" name="search" value="" id="mobile_search">
                       </div>
                   </div>
                 </div>
@@ -186,14 +184,14 @@ else
     <link href="font/css/fontello.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
-        <link type="text/css" rel="stylesheet" href="css/touchslider.css" />
-       <link rel="stylesheet" type="text/css" href="css/jquery.mobile.custom.theme.min.css">
+    <link type="text/css" rel="stylesheet" href="css/touchslider.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.custom.theme.min.css">
   <script src="js/jquery-1.10.2.js"></script>
   <script src="js/touchslider.js"></script>
   
   <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
     </head>
-    <body>
+    <body style="overflow-y:hidden">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="container"> 
@@ -204,7 +202,8 @@ else
                </a> 
             <a class="brand" href="index.html"><img src="img/user.jpg"/></a>
             <ul class="nav nav-collapse pull-right">
-              <li><a href="index.html" class="active"><i class="icon-user"></i> Profile</a></li>
+              <li style="margin-right: 0px;"><a href="#" class="active"><i class="icon-user"></i> Profile</a></li>
+              <li style="margin-left: 10px;"><a href="login.php" ><i class="icon-paper-plane"></i> Login</a></li>
               <!--li><a href="skills.html"><i class="icon-trophy"></i> Skills</a></li>
               <li><a href="work.html"><i class="icon-picture"></i> Work</a></li>
               <li><a href="resume.html"><i class="icon-doc-text"></i> Resume</a></li-->
@@ -400,6 +399,8 @@ else
         </div>
     </div></div></div>
 </div>
+
+
     </html>
 
 <?php
